@@ -211,6 +211,13 @@ composer require --dev kotamat/laravel-apispec-generator
 
 ---
 
+### APIと絡めることで
+
+- 送信用データをいちいち作成する手間が無くなる。
+- factoryの値をfakerで定義しておけば色々なダミーデータでチェックできる
+
+---
+
 ### 応用
 
 #### 複数のリポジトリでModelを共有してるときどうする 🤔
