@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Feature;
+
 use Illuminate\Foundation\Testing\TestResponse;
 
 class ApiTest extends \Tests\TestCase
