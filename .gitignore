@@ -13,3 +13,5 @@ yarn-error.log
 
 _ide_helper.php
 nohup.out
+
+!storage/app/api/

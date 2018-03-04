@@ -69,7 +69,7 @@
 @[52](routeの第二引数と、putJsonの第二引数それぞれに渡してあげて)
 @[35](ステータス200かどうかチェック)
 @[36](取得したデータをprint_rで表示)
-@[61-71](deleteも同様)
+@[61-72](deleteも同様)
 
 --- 
 
@@ -95,14 +95,64 @@ Array
 )
 ```
 
+@[1-4](GET)
+@[5-9](POST)
+@[10-15](PUT)
+@[16-19](DELETE)
+
 --- 
 
 ### 応用
 
 - これを用いることで、API定義書を自動生成することが可能となる。
 - 色々なプロジェクトで使用できるようにAPI定義書自動生成ツールを作成した。
+- [kotamat/laravel-apispec-generator](https://github.com/kotamat/laravel-apispec-generator)
 
 --- 
+
+#### 使い方
+
+---
+
+#### インストール
+
+```bash
+composer require --dev kotamat/laravel-apispec-generator
+```
+
+---?code=composer.json&lang=php
+
+@[17](composer requireでkotamat/laravel-apispec-generatorをインストール)
+
+---
+
+#### TestCaseを拡張
+
+---?code=tests/ApiSpecTestCase.php&lang=php
+
+@[5-7](ベースとなるTestCaseクラスにて、ApiSpecTestCaseをextendするように修正)
+
+---
+
+#### テストを書く
+
+---?code=tests/Feature/ApiSpecTestCase.php&lang=php
+
+@[7](実際のクラスでは$isExportSpec=trueにしたあと)
+@[11-21](先程と同様にテストを記述)
+@[26-36](先程と同様にテストを記述)
+@[41-54](先程と同様にテストを記述)
+@[59-69](先程と同様にテストを記述)
+
+---
+
+#### storage/appディレクトリに出力
+
+---?code=storage/app/api/test?page=1/GET.http&lang=http
+
+@[1](実際のリクエスト)
+@[2-3](各種ヘッダー)
+@[5-8](返り値JSON)
 
 ## ModelFactory
 
