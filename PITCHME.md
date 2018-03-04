@@ -52,7 +52,7 @@
 
 ### 呼び出し方
 
----?code=tests/Feature/ApiTest.php&lang=php
+---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
 
 @[14-16](GETパラメータを定義しておき)
 @[18-19](routeの第二引数にパラメータを渡してレスポンス取得)
@@ -134,7 +134,7 @@ composer require --dev kotamat/laravel-apispec-generator
 
 #### テストを書く
 
----?code=tests/Feature/ApiWithSpecTest.php&lang=php
+---?code=tests/Feature/ApiWithSpecTest.php&lang=php&title=tests/Feature/ApiWithSpecTest.php
 
 @[9](実際のクラスでは$isExportSpec=trueにしたあと)
 @[13-23](先程と同様にテストを記述)
@@ -188,14 +188,12 @@ composer require --dev kotamat/laravel-apispec-generator
 - フォーム関連の入力値生成とか雑にデータを生成したいときに使う
 - デフォで入ってる
 
----
-
 ---?code=database/factories/UserFactory.php&lang=php&title=database/factories/UserFactory.php
 
 @[16]($factory->defineで対象モデルを指定し)
 @[19-24](返却したいデータを定義)
 
----?code=tests/Feature/ModelFactoryTest.php&lang=php
+---?code=tests/Feature/ModelFactoryTest.php&lang=php&title=tests/Feature/ModelFactoryTest.php
 
 @[15](factory(User::class)->make()で生成)
 @[16-21](必要な情報がちゃんと入ってくる)
@@ -204,7 +202,7 @@ composer require --dev kotamat/laravel-apispec-generator
 
 ### APIと絡める
 
----?code=tests/Feature/ModelFactoryTest.php&lang=php
+---?code=tests/Feature/ModelFactoryTest.php&lang=php&title=tests/Feature/ModelFactoryTest.php
 
 @[29](インスタンス生成)
 @[30](配列化)
@@ -220,17 +218,19 @@ composer require --dev kotamat/laravel-apispec-generator
 - その他複数のリポジトリでそのModelを継承して使用
 - factoryした結果は継承先のモデルのインスタンスとして使用したい
 
----?code=app/User.php&lang=php
+---?code=app/User.php&lang=php&title=定義元ファイル
 ---?code=database/factories/UserFactory.php&lang=php&title=database/factories/UserFactory.php
----?code=app/UserB.php&lang=php
----?code=tests/Feature/ModelFactoryTest.php&lang=php
+---?code=app/UserB.php&lang=php&title=継承後ファイル
+---?code=tests/Feature/ModelFactoryTest.php&lang=php&title=テストしたいところ
 
 @[41](こうしたら)
 @[42](これを通したい)
 
+---
+
 #### 呼び出しもとのリポジトリで配列を生成
 
----?code=Utility/ModelFactoryParams.php&lang=php
+---?code=app/Utility/ModelFactoryParams.php&lang=php
 
 @[9](static関数を定義)
 @[11](fakerで)
@@ -240,7 +240,7 @@ composer require --dev kotamat/laravel-apispec-generator
 ---?code=database/factories/OtherRepoFactory.php&lang=php
 
 @[3](定義ファイルをforeachで回す)
-@[4](使用側でのリポジトリで所定のnamespaceで定義)
+@[4,6](使用側でのリポジトリで所定のnamespaceで定義)
 @[5](単純に$paramを返す)
 
 ---
@@ -263,7 +263,7 @@ composer require --dev kotamat/laravel-apispec-generator
 
 ---?code=tests/tdt.go&lang=go
 
-@[4](a*bを定義)
+@[3-5](a*bを定義)
 
 ---?code=tests/tdt_test.go&lang=go
 
@@ -272,9 +272,11 @@ composer require --dev kotamat/laravel-apispec-generator
 @[15-17](入力値と出力値の組み合わせを定義し)
 @[19-24](forでぶん回す)
 
+---
+
 ## 応用
 
-テーブル型でチェックするため全ペアテストへの応用が聞きやすい
+テーブル型でチェックするため全ペアテストへの応用が効きやすい
 
 ---
 
@@ -290,7 +292,11 @@ composer require --dev kotamat/laravel-apispec-generator
 ### pictを使って全ペアを算出
 
 - [pict](https://github.com/Microsoft/pict)をインストール
-- `alias genAllPair="pict <(pbpaste) /d:\"|\" /a:~ | tr '\t' ', ' | pbcopy"`みたいなかんじでエイリアス張っておく
+-
+```bash
+alias genAllPair="pict <(pbpaste) /d:\"|\" /a:~ | tr '\t' ', ' | pbcopy"
+```
+みたいなかんじでエイリアス張っておく
 - テストケースをPHPDocに書いておく
 - テストケースをコピってターミナルで`genAllPair`と打つ
 - 出力された値をソースコードにコピってテストを書く
@@ -310,4 +316,4 @@ composer require --dev kotamat/laravel-apispec-generator
 - テストはなるべく手を抜いて効果を最大化しよう
 - 色々な手法を知ってると便利💪
 - 他に便利な手法しってたら教えて下さい!🙏
-- ~Golangはいいぞ~
+- ~~Golangはいいぞ~~
