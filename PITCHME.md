@@ -45,13 +45,14 @@
 
 ## APIspecテスト
 
-- Laravelに標準で搭載されているrest系関数を使ったテスト
-- APIのIO全体の振る舞いをテストするのに簡単に使える
+- Laravelに標準で搭載されているHTTPリクエストを仮想的に使える関数を使ったテスト
+- APIのE2Eの振る舞いをテストするのに簡単に使える
 
 ---
 
 ### 呼び出し方
 
+---?code=routes/api.php&lang=php&title=例えばこんなAPIがあったとき
 ---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
 
 @[14-16](GETパラメータを定義しておき)
