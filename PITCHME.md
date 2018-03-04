@@ -158,13 +158,15 @@ composer require --dev kotamat/laravel-apispec-generator
 
 @[1](実際のリクエスト)
 @[2-3](各種ヘッダー)
-@[5-8](返り値JSON)
+@[5-7](ボディ)
+@[8-11](返り値JSON)
 
 ---?code=storage/app/api/test/1/PUT.http&lang=http&title=put
 
 @[1](実際のリクエスト)
 @[2-3](各種ヘッダー)
-@[5-8](返り値JSON)
+@[5-7](ボディ)
+@[8-12](返り値JSON)
 
 ---?code=storage/app/api/test/1/DELETE.http&lang=http&title=delete
 
