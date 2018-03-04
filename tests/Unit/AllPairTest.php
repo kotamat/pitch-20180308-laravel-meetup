@@ -36,5 +36,4 @@ class AllPairTest extends TestCase
             $this->assertEquals($this->kakeru(...$datum['in']), $datum['out']);
         }
     }
-
 }
