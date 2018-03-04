@@ -176,6 +176,13 @@ composer require --dev kotamat/laravel-apispec-generator
 
 ---
 
+### まとめ
+
+- APIスペック用のテストケースを書くだけで、API仕様書を記述可能
+- .http形式を読み込めるエディターで動作確認可能
+
+---
+
 ## ModelFactory
 
 ---
