@@ -185,8 +185,70 @@ composer require --dev kotamat/laravel-apispec-generator
 
 ## ModelFactory
 
+- 任意のEloquentモデルのテストデータを生成できる
+- Eloquentモデル使ってると幸せになれる機能
+- フォーム関連の入力値生成とか雑にデータを生成したいときに使う
+- デフォで入ってる
+
 ---
 
+---?code=database/factories/UserFactory.php&lang=php&title=database/factories/UserFactory.php
+
+@[16]($factory->defineで対象モデルを指定し)
+@[19-24](返却したいデータを定義)
+
+---?code=tests/Feature/ModelFactoryTest.php&lang=php
+
+@[15](factory(User::class)->make()で生成)
+@[16-21](必要な情報がちゃんと入ってくる)
+
+--- 
+
+### APIと絡める
+
+---?code=tests/Feature/ModelFactoryTest.php&lang=php
+
+@[29](インスタンス生成)
+@[30](配列化)
+@[32](userをstore)
+
+---
+
+### 応用
+
+#### 複数のリポジトリでModelを共有してるときどうする 🤔
+
+- どこかのリポジトリでModelを抽象化
+- その他複数のリポジトリでそのModelを継承して使用
+- factoryした結果は継承先のモデルのインスタンスとして使用したい
+
+---?code=app/User.php&lang=php
+---?code=database/factories/UserFactory.php&lang=php&title=database/factories/UserFactory.php
+---?code=app/UserB.php&lang=php
+---?code=tests/Feature/ModelFactoryTest.php&lang=php
+
+@[41](こうしたら)
+@[42](これを通したい)
+
+#### 呼び出しもとのリポジトリで配列を生成
+
+---?code=Utility/ModelFactoryParams.php&lang=php
+
+@[9](static関数を定義)
+@[11](fakerで)
+@[14-21](対象のモデルに対するデータを返すモデルを定義)
+
+
+---?code=database/factories/OtherRepoFactory.php&lang=php
+
+@[3](定義ファイルをforeachで回す)
+@[4](使用側でのリポジトリで所定のnamespaceで定義)
+@[5](単純に$paramを返す)
+
+### まとめ
+
+- Model定義層で配列生成→使用側で一気にfactory登録で関心の分離
+- ApiSpecの自動生成と併用すると👍
 
 ## 全ペアテスト
 
