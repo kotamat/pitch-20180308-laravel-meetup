@@ -1,0 +1,11 @@
+POST http://localhost/api/test
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "hoge"
+}
+# Response:
+#{
+#    "name": "hoge"
+#}

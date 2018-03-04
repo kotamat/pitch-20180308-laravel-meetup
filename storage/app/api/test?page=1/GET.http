@@ -1,0 +1,8 @@
+GET http://localhost/api/test?page=1
+Content-Type: application/json
+Accept: application/json
+
+# Response:
+#{
+#    "status": "huga"
+#}

@@ -1,0 +1,12 @@
+PUT http://localhost/api/test/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "hoge"
+}
+# Response:
+#{
+#    "id": "1",
+#    "name": "hoge"
+#}
