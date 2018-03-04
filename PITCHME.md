@@ -54,7 +54,7 @@
 
 ---?code=routes/api.php&lang=php
 
-@[17-30](例えばこんなAPIがあったとき)
+@[17-33](例えばこんなAPIがあったとき)
 
 ---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
 
