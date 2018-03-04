@@ -120,7 +120,7 @@ Array
 composer require --dev kotamat/laravel-apispec-generator
 ```
 
----?code=composer.json&lang=php
+---?code=composer.json&lang=php&title=composer.json
 
 @[17](composer requireでkotamat/laravel-apispec-generatorをインストール)
 
@@ -128,7 +128,7 @@ composer require --dev kotamat/laravel-apispec-generator
 
 #### TestCaseを拡張
 
----?code=tests/ApiSpecTestCase.php&lang=php
+---?code=tests/ApiSpecTestCase.php&lang=php&title=ApiSpecTestCase.php
 
 @[5-7](ベースとなるTestCaseクラスにて、ApiSpecTestCaseをextendするように修正)
 
@@ -148,11 +148,31 @@ composer require --dev kotamat/laravel-apispec-generator
 
 #### storage/appディレクトリに出力
 
----?code=storage/app/api/test?page=1/GET.http&lang=http
+---?code=storage/app/api/testpage1/GET.http&lang=http&title=get
 
 @[1](実際のリクエスト)
 @[2-3](各種ヘッダー)
 @[5-8](返り値JSON)
+
+---?code=storage/app/api/test/POST.http&lang=http&title=post
+
+@[1](実際のリクエスト)
+@[2-3](各種ヘッダー)
+@[5-8](返り値JSON)
+
+---?code=storage/app/api/test/1/PUT.http&lang=http&title=put
+
+@[1](実際のリクエスト)
+@[2-3](各種ヘッダー)
+@[5-8](返り値JSON)
+
+---?code=storage/app/api/test/1/DELETE.http&lang=http&title=delete
+
+@[1](実際のリクエスト)
+@[2-3](各種ヘッダー)
+@[5-8](返り値JSON)
+
+---
 
 ## ModelFactory
 
