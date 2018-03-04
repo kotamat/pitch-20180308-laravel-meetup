@@ -52,7 +52,10 @@
 
 ### 呼び出し方
 
----?code=routes/api.php&lang=php&title=例えばこんなAPIがあったとき
+---?code=routes/api.php&lang=php
+
+@[17-30](例えばこんなAPIがあったとき)
+
 ---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
 
 @[14-16](GETパラメータを定義しておき)
@@ -226,10 +229,10 @@ composer require --dev kotamat/laravel-apispec-generator
 - その他複数のリポジトリでそのModelを継承して使用
 - factoryした結果は継承先のモデルのインスタンスとして使用したい
 
----?code=app/User.php&lang=php&title=定義元ファイル
+---?code=app/User.php&lang=php&title=SuperClass
 ---?code=database/factories/UserFactory.php&lang=php&title=database/factories/UserFactory.php
----?code=app/UserB.php&lang=php&title=継承後ファイル
----?code=tests/Feature/ModelFactoryTest.php&lang=php&title=テストしたいところ
+---?code=app/UserB.php&lang=php&title=SubClass
+---?code=tests/Feature/ModelFactoryTest.php&lang=php&title=TestCase
 
 @[41](こうしたら)
 @[42](これを通したい)
