@@ -6,6 +6,7 @@
 
 - 株式会社SCOUTER CTO
 - @kotamat
+- 🚲
 
 ---
 
@@ -31,7 +32,6 @@
 
 ![t_wada](https://connpass-tokyo.s3.amazonaws.com/event/27540/41d84cf0e6494e2e91e51ad8e9c85310.png)
 
-
 ---
 
 ## 今日話すこと
@@ -47,6 +47,8 @@
 
 - Laravelに標準で搭載されているHTTPリクエストを仮想的に使える関数を使ったテスト
 - APIのE2Eの振る舞いをテストするのに簡単に使える
+- LaravelではHTTPテストになっている
+    - https://laravel.com/docs/5.6/http-tests
 
 ---
 
@@ -55,6 +57,40 @@
 ---?code=routes/api.php&lang=php
 
 @[17-33](例えばこんなAPIがあったとき)
+
+---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
+
+@[14-16](GETパラメータを定義しておき)
+@[18-19](routeの第二引数にパラメータを渡してレスポンス取得)
+@[21](ステータス200かどうかチェック)
+@[22](取得したデータをprint_rで表示)
+
+--- 
+
+### 実行結果
+
+```
+Array
+(
+    [status] => huga
+)
+Array
+(
+    [name] => hoge
+)
+Array
+(
+    [id] => 1
+    [name] => hoge
+)
+Array
+(
+    [id] => 1
+)
+```
+
+@[1-4](GET)
+
 
 ---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
 
