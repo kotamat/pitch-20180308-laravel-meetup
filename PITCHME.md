@@ -225,6 +225,15 @@ composer require --dev kotamat/laravel-apispec-generator
 
 #### 複数のリポジトリでModelを共有してるときどうする 🤔
 
+---
+
+```
+- app/User.php // SubClass
+- database/factories/UserFactory.php
+- tests/Feature/ModelFactoryTest.php
+- vendor/abstract/repository/src/User.php // SuperClass
+```
+
 - どこかのリポジトリでModelを抽象化
 - その他複数のリポジトリでそのModelを継承して使用
 - factoryした結果は継承先のモデルのインスタンスとして使用したい
