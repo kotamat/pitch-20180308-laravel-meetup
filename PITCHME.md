@@ -4,8 +4,6 @@
 
 ## 自己紹介
 
-![kotamat](assets/img/kotamat.png)
-
 - 株式会社SCOUTER CTO
 - @kotamat
 - 🚲
