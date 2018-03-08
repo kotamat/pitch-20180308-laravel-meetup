@@ -74,39 +74,49 @@ Array
 (
     [status] => huga
 )
-Array
-(
-    [name] => hoge
-)
-Array
-(
-    [id] => 1
-    [name] => hoge
-)
-Array
-(
-    [id] => 1
-)
 ```
-
-@[1-4](GET)
 
 
 ---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
 
-@[14-16](GETパラメータを定義しておき)
-@[18-19](routeの第二引数にパラメータを渡してレスポンス取得)
-@[21](ステータス200かどうかチェック)
-@[22](取得したデータをprint_rで表示)
 @[30-32](POSTも同様に配列でパラメータを定義)
 @[34-35](今度はpostJsonの第二引数にパラメータを渡す(getパラメータではないので))
 @[37](ステータス200かどうかチェック)
 @[38](取得したデータをprint_rで表示)
+
+--- 
+
+### 実行結果
+
+```
+Array
+(
+    [name] => hoge
+)
+```
+
+---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
+
 @[44](PUTの場合は)
 @[46-51](送信データとGETパラメータを双方定義し)
 @[54](routeの第二引数と、putJsonの第二引数それぞれに渡してあげて)
 @[37](ステータス200かどうかチェック)
 @[38](取得したデータをprint_rで表示)
+
+--- 
+
+### 実行結果
+
+```
+Array
+(
+    [id] => 1
+    [name] => hoge
+)
+```
+
+---?code=tests/Feature/ApiTest.php&lang=php&title=tests/Feature/ApiTest.php
+
 @[63-74](deleteも同様)
 
 --- 
@@ -116,27 +126,9 @@ Array
 ```
 Array
 (
-    [status] => huga
-)
-Array
-(
-    [name] => hoge
-)
-Array
-(
-    [id] => 1
-    [name] => hoge
-)
-Array
-(
     [id] => 1
 )
 ```
-
-@[1-4](GET)
-@[5-8](POST)
-@[9-13](PUT)
-@[14-17](DELETE)
 
 --- 
 
@@ -211,6 +203,10 @@ composer require --dev kotamat/laravel-apispec-generator
 @[1](実際のリクエスト)
 @[2-3](各種ヘッダー)
 @[5-8](返り値JSON)
+
+---
+
+### デモ
 
 ---
 
